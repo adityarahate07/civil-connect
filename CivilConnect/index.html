@@ -1,0 +1,1596 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>CivilConnect | Construction Network of Buldhana District</title>
+  
+  <!-- Font Awesome 6 Icons -->
+  <link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+  />
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="construction-animations.css" />
+</head>
+
+<body>
+
+  <!-- ========================================================
+       SECTION 43: BRANDED LOADING SCREEN
+       ======================================================== -->
+  <div id="brandedLoader" class="loader-overlay hidden">
+    <div style="text-align: center;">
+      <div class="construction-loader-icon" style="margin-bottom: 20px;"></div>
+      <h2 style="font-size: 26px; font-weight: 800; letter-spacing: -0.02em; margin-bottom: 6px;">
+        Civil<span style="color: var(--brand-amber);">Connect</span>
+      </h2>
+      <p style="color: #94a3b8; font-size: 14px; font-weight: 500;">
+        Connecting Construction Opportunities in Buldhana...
+      </p>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       SECTION 30, 31, 32: WELCOME / SPLASH SCREEN OVERLAY
+       ======================================================== -->
+  <section id="welcomeScreen" class="welcome-overlay">
+    
+    <!-- Section 31: Subtle Animated Construction Scene Background -->
+    <div class="welcome-scene-bg">
+      <svg viewBox="0 0 1440 900" preserveAspectRatio="xMidYMid slice" style="width: 100%; height: 100%;">
+        <defs>
+          <linearGradient id="skyGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0%" stop-color="#0f172a" />
+            <stop offset="50%" stop-color="#1e293b" />
+            <stop offset="100%" stop-color="#0b0f19" />
+          </linearGradient>
+
+          <linearGradient id="sunSheenGrad" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="#f59e0b" stop-opacity="0.3" />
+            <stop offset="60%" stop-color="#ea580c" stop-opacity="0.08" />
+            <stop offset="100%" stop-color="#000000" stop-opacity="0" />
+          </linearGradient>
+
+          <linearGradient id="craneGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0%" stop-color="#f59e0b" />
+            <stop offset="100%" stop-color="#d97706" />
+          </linearGradient>
+        </defs>
+
+        <!-- Sky & Sun Sheen -->
+        <rect width="1440" height="900" fill="url(#skyGrad)" />
+        <circle cx="1150" cy="200" r="320" fill="url(#sunSheenGrad)" class="sun-effect" />
+
+        <!-- Floating Cloud Layers -->
+        <g class="cloud-layer" opacity="0.18">
+          <ellipse cx="280" cy="180" rx="140" ry="40" fill="#cbd5e1" />
+          <ellipse cx="340" cy="160" rx="90" ry="35" fill="#cbd5e1" />
+          <ellipse cx="850" cy="140" rx="180" ry="45" fill="#cbd5e1" />
+          <ellipse cx="920" cy="120" rx="110" ry="35" fill="#cbd5e1" />
+        </g>
+
+        <!-- Distant Buldhana City Silhouette -->
+        <path d="M 0,720 L 60,690 L 100,690 L 140,710 L 220,670 L 290,670 L 330,730 L 480,680 L 550,680 L 620,720 L 780,660 L 860,660 L 920,720 L 1100,670 L 1200,670 L 1280,720 L 1440,700 L 1440,900 L 0,900 Z" fill="#131b2e" />
+
+        <!-- Midground Buildings Under Construction & Scaffolding -->
+        <g opacity="0.65">
+          <!-- Building 1 (Left) with floors -->
+          <rect x="180" y="420" width="160" height="380" fill="#1a253c" stroke="#334155" stroke-width="2" />
+          <!-- Slabs -->
+          <line x1="180" y1="480" x2="340" y2="480" stroke="#f59e0b" stroke-width="2" opacity="0.4" />
+          <line x1="180" y1="540" x2="340" y2="540" stroke="#f59e0b" stroke-width="2" opacity="0.4" />
+          <line x1="180" y1="600" x2="340" y2="600" stroke="#f59e0b" stroke-width="2" opacity="0.4" />
+          <line x1="180" y1="660" x2="340" y2="660" stroke="#f59e0b" stroke-width="2" opacity="0.4" />
+          <!-- Columns -->
+          <line x1="220" y1="420" x2="220" y2="800" stroke="#334155" stroke-width="2" />
+          <line x1="260" y1="420" x2="260" y2="800" stroke="#334155" stroke-width="2" />
+          <line x1="300" y1="420" x2="300" y2="800" stroke="#334155" stroke-width="2" />
+          
+          <!-- Scaffolding cross-bracing -->
+          <line x1="340" y1="440" x2="380" y2="490" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" />
+          <line x1="380" y1="440" x2="340" y2="490" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" />
+          <line x1="340" y1="490" x2="380" y2="540" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" />
+          <line x1="380" y1="490" x2="340" y2="540" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" />
+          <line x1="340" y1="540" x2="380" y2="590" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" />
+          <line x1="380" y1="540" x2="340" y2="590" stroke="#f59e0b" stroke-width="1.5" opacity="0.5" />
+        </g>
+
+        <!-- Animated Tower Crane (Right) -->
+        <g id="craneTower" opacity="0.85">
+          <!-- Vertical Mast -->
+          <rect x="1100" y="240" width="22" height="560" fill="none" stroke="url(#craneGrad)" stroke-width="3" />
+          <!-- Lattice Diagonal Crosses in Mast -->
+          <line x1="1100" y1="260" x2="1122" y2="290" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1122" y1="260" x2="1100" y2="290" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1100" y1="290" x2="1122" y2="320" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1122" y1="290" x2="1100" y2="320" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1100" y1="320" x2="1122" y2="350" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1122" y1="320" x2="1100" y2="350" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1100" y1="350" x2="1122" y2="380" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1122" y1="350" x2="1100" y2="380" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1100" y1="380" x2="1122" y2="410" stroke="#f59e0b" stroke-width="1.5" />
+          <line x1="1122" y1="380" x2="1100" y2="410" stroke="#f59e0b" stroke-width="1.5" />
+
+          <!-- Operator Cabin -->
+          <rect x="1086" y="224" width="28" height="26" fill="#1e293b" stroke="#f59e0b" stroke-width="2" rx="4" />
+          <!-- Apex Tower Top -->
+          <polygon points="1111,170 1098,224 1124,224" fill="none" stroke="#f59e0b" stroke-width="2.5" />
+
+          <!-- Revolving Jib & Arm -->
+          <g class="crane-jib-arm" style="transform-origin: 1111px 224px;">
+            <!-- Counter Jib (Right side with counterweight) -->
+            <line x1="1111" y1="224" x2="1280" y2="224" stroke="#f59e0b" stroke-width="3" />
+            <rect x="1240" y="218" width="34" height="22" fill="#64748b" stroke="#94a3b8" stroke-width="1.5" rx="3" />
+            <!-- Guy wire to counterweight -->
+            <line x1="1111" y1="170" x2="1260" y2="224" stroke="#e2e8f0" stroke-width="1.2" opacity="0.6" />
+
+            <!-- Working Jib (Left side extending over site) -->
+            <line x1="1111" y1="224" x2="720" y2="224" stroke="#f59e0b" stroke-width="3.5" />
+            <!-- Guy wire to working jib -->
+            <line x1="1111" y1="170" x2="880" y2="224" stroke="#e2e8f0" stroke-width="1.2" opacity="0.6" />
+
+            <!-- Trolley moving on track -->
+            <g class="crane-trolley">
+              <rect x="910" y="222" width="18" height="8" fill="#d97706" rx="2" />
+              <!-- Hoist Cable & Suspended Beam -->
+              <g class="crane-hook-assembly" style="transform-origin: 919px 230px;">
+                <line x1="919" y1="230" x2="919" y2="340" stroke="#f8fafc" stroke-width="1.2" />
+                <path d="M 914,340 C 914,352 924,352 924,344" fill="none" stroke="#f59e0b" stroke-width="2.5" />
+                <!-- Suspended Steel I-Beam -->
+                <rect x="884" y="348" width="70" height="10" fill="#f59e0b" rx="2" opacity="0.9" />
+              </g>
+            </g>
+          </g>
+        </g>
+
+        <!-- Construction Worker Silhouette with Welding Spark -->
+        <g transform="translate(350, 410)" opacity="0.8">
+          <!-- Worker on scaffold -->
+          <circle cx="12" cy="8" r="6" fill="#fbbf24" /> <!-- Helmet -->
+          <line x1="12" y1="14" x2="12" y2="32" stroke="#fbbf24" stroke-width="3" /> <!-- Torso -->
+          <line x1="12" y1="20" x2="28" y2="26" stroke="#fbbf24" stroke-width="2.5" /> <!-- Arm holding torch -->
+          <!-- Welding Spark Animation -->
+          <circle cx="30" cy="27" r="5" fill="#fef08a" class="welding-spark" />
+        </g>
+
+        <!-- Construction Vehicle (Dump Truck / Mixer) moving along bottom -->
+        <g class="moving-truck" transform="translate(0, 785)">
+          <rect x="0" y="0" width="80" height="28" fill="#d97706" rx="4" />
+          <path d="M 60,0 L 80,10 L 80,28 L 60,28 Z" fill="#b45309" />
+          <circle cx="18" cy="28" r="10" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+          <circle cx="62" cy="28" r="10" fill="#1e293b" stroke="#64748b" stroke-width="3" />
+          <rect x="62" y="4" width="12" height="10" fill="#38bdf8" rx="2" opacity="0.8" />
+        </g>
+
+        <!-- Floating Dust & Spark Particles -->
+        <circle cx="480" cy="500" r="2.5" fill="#f59e0b" class="particle-spark-1" />
+        <circle cx="720" cy="420" r="2" fill="#fbbf24" class="particle-spark-2" />
+        <circle cx="980" cy="470" r="3" fill="#ea580c" class="particle-spark-3" />
+      </svg>
+    </div>
+
+    <!-- Dark Overlay for Readability -->
+    <div class="welcome-dark-overlay"></div>
+
+    <!-- Center Welcome Card -->
+    <div class="welcome-content-container">
+      
+      <!-- View 1: Main Welcome Splash -->
+      <div id="welcomeSplashMain">
+        <!-- Logo Icon -->
+        <div class="welcome-logo-badge anim-welcome-logo">
+          <i class="fa-solid fa-helmet-safety"></i>
+        </div>
+
+        <!-- Title -->
+        <h1 class="welcome-title anim-welcome-title">
+          Welcome to <span>CivilConnect</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="welcome-subtitle anim-welcome-subtitle">
+          Connecting Construction Workers, Contractors & Construction Sites
+        </p>
+
+        <!-- Additional Text -->
+        <p class="welcome-tagline anim-welcome-subtitle">
+          Find work. Find skilled workers. Build together.
+        </p>
+
+        <!-- Buttons -->
+        <div class="welcome-actions anim-welcome-buttons">
+          <button id="btnGetStarted" class="btn-primary" style="font-size: 16px; padding: 14px 32px;">
+            <i class="fa-solid fa-arrow-right"></i>
+            Get Started
+          </button>
+          
+          <button id="btnExploreJobs" class="btn-outline-amber" style="font-size: 16px; padding: 13px 28px;">
+            <i class="fa-solid fa-briefcase"></i>
+            Explore Construction Jobs
+          </button>
+        </div>
+
+        <!-- District Tag -->
+        <div class="welcome-district-footer anim-welcome-footer">
+          <i class="fa-solid fa-location-dot"></i>
+          <span>Serving Buldhana District, Maharashtra</span>
+        </div>
+      </div>
+
+      <!-- View 2: Section 32 - Get Started Role Selection -->
+      <div id="welcomeRoleSelect" class="role-select-view">
+        <button id="btnBackToWelcome" class="btn-secondary btn-sm" style="margin-bottom: 16px;">
+          <i class="fa-solid fa-arrow-left"></i> Back
+        </button>
+
+        <h2 style="font-size: clamp(1.8rem, 4vw, 2.6rem); font-weight: 800; margin-bottom: 8px;">
+          How do you want to use <span style="color: var(--brand-amber);">CivilConnect</span>?
+        </h2>
+        <p style="color: #cbd5e1; font-size: 15px; max-width: 580px; margin: 0 auto 24px auto;">
+          Choose your role to personalize your construction opportunities across 13 Talukas of Buldhana District.
+        </p>
+
+        <!-- 4 Animated Role Cards -->
+        <div class="role-cards-grid">
+          
+          <!-- Card 1: Worker / Labour -->
+          <div class="role-card role-card-item" onclick="CivilConnectApp.selectRoleAndRegister('worker')">
+            <div class="role-card-header">
+              <div class="role-icon-box">
+                <i class="fa-solid fa-person-digging"></i>
+              </div>
+              <span class="role-badge">Jobs & Wages</span>
+            </div>
+            <div>
+              <h3>👷 Worker / Labour</h3>
+              <p>Find construction jobs, daily labour requirements, and instant contractor calls near your village.</p>
+            </div>
+            <div class="role-card-footer">
+              <span>Register as Worker</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Card 2: Contractor -->
+          <div class="role-card role-card-item" onclick="CivilConnectApp.selectRoleAndRegister('contractor')">
+            <div class="role-card-header">
+              <div class="role-icon-box">
+                <i class="fa-solid fa-trowel-bricks"></i>
+              </div>
+              <span class="role-badge">Hire Labour</span>
+            </div>
+            <div>
+              <h3>🏗️ Contractor</h3>
+              <p>Find skilled workers, post urgent labour requirements, and manage site sub-contractors.</p>
+            </div>
+            <div class="role-card-footer">
+              <span>Register as Contractor</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Card 3: Builder / Site Owner -->
+          <div class="role-card role-card-item" onclick="CivilConnectApp.selectRoleAndRegister('builder')">
+            <div class="role-card-header">
+              <div class="role-icon-box">
+                <i class="fa-solid fa-building"></i>
+              </div>
+              <span class="role-badge">Site Oversight</span>
+            </div>
+            <div>
+              <h3>🏢 Builder / Site Owner</h3>
+              <p>Manage construction sites, monitor project progress, and fulfill large workforce requirements.</p>
+            </div>
+            <div class="role-card-footer">
+              <span>Register as Builder</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </div>
+
+          <!-- Card 4: Construction Supervisor -->
+          <div class="role-card role-card-item" onclick="CivilConnectApp.selectRoleAndRegister('supervisor')">
+            <div class="role-card-header">
+              <div class="role-icon-box">
+                <i class="fa-solid fa-vest"></i>
+              </div>
+              <span class="role-badge">Muster Roll</span>
+            </div>
+            <div>
+              <h3>🛠️ Construction Supervisor</h3>
+              <p>Manage daily worker muster roll, allocate site tasks, and report project shift milestones.</p>
+            </div>
+            <div class="role-card-footer">
+              <span>Register as Supervisor</span>
+              <i class="fa-solid fa-arrow-right card-arrow"></i>
+            </div>
+          </div>
+
+        </div>
+
+        <p style="font-size: 13px; color: #94a3b8;">
+          Already have an account? 
+          <a href="javascript:void(0)" onclick="CivilConnectApp.openLogin()" style="color: var(--brand-amber); font-weight: 700; text-decoration: underline;">
+            Log in directly
+          </a>
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ========================================================
+       SECTION 35: STICKY MODERN NAVBAR
+       ======================================================== -->
+  <header id="mainNavbar" class="main-navbar">
+    <div class="container navbar-container">
+      
+      <!-- Brand Logo -->
+      <a href="#home" class="navbar-logo">
+        <i class="fa-solid fa-helmet-safety"></i>
+        <span>CivilConnect</span>
+      </a>
+
+      <!-- Desktop Navigation Links -->
+      <nav>
+        <ul class="navbar-links">
+          <li><a href="#home" class="nav-link active">Home</a></li>
+          <li><a href="#jobs" class="nav-link">Construction Jobs</a></li>
+          <li><a href="#workers" class="nav-link">Workers Needed</a></li>
+          <li><a href="#sites" class="nav-link">Construction Sites</a></li>
+          <li><a href="#notifications" class="nav-link">Notifications</a></li>
+          <li><a href="#dashboard" class="nav-link" id="navDashboardLink">Dashboard</a></li>
+          <li><a href="#about" class="nav-link">About</a></li>
+        </ul>
+      </nav>
+
+      <!-- Right Navbar Actions -->
+      <div class="navbar-actions">
+        
+        <!-- Theme Switcher (Section 48) -->
+        <button id="themeToggleBtn" class="theme-toggle-btn theme-switch-btn" title="Toggle Light / Dark Mode">
+          <i class="fa-solid fa-sun" id="themeIcon"></i>
+        </button>
+
+        <!-- Buldhana Notification Bell (Section 40) -->
+        <button id="navBellBtn" class="notification-bell-btn bell-chime-icon" title="Buldhana Updates">
+          <i class="fa-solid fa-bell"></i>
+          <span id="bellBadgeCount" class="bell-badge-count">3</span>
+        </button>
+
+        <!-- Role Badge / Dashboard Quick Link -->
+        <div id="userProfileBadge" class="user-badge-btn" onclick="CivilConnectApp.navigateTo('dashboard')">
+          <span id="navRoleIcon">👷</span>
+          <span id="navUserName">Ramesh (Worker)</span>
+        </div>
+
+        <!-- Guest Auth Buttons -->
+        <div id="guestAuthGroup" style="display: none; gap: 8px;">
+          <button class="btn-secondary btn-sm" onclick="CivilConnectApp.openLogin()">Login</button>
+          <button class="btn-primary btn-sm" onclick="CivilConnectApp.openRegister()">Register</button>
+        </div>
+
+        <!-- Replay Welcome Splash shortcut -->
+        <button class="btn-secondary btn-sm" onclick="CivilConnectApp.replayWelcome()" title="Replay Welcome Page" style="padding: 8px 10px;">
+          <i class="fa-solid fa-rotate-left"></i>
+        </button>
+
+        <!-- Mobile Hamburger Button -->
+        <button id="hamburgerBtn" class="hamburger-btn" aria-label="Toggle Menu">
+          <span class="hamburger-bar bar-1"></span>
+          <span class="hamburger-bar bar-2"></span>
+          <span class="hamburger-bar bar-3"></span>
+        </button>
+
+      </div>
+
+    </div>
+
+    <!-- Mobile Drawer -->
+    <div id="mobileDrawer" class="mobile-nav-drawer" style="background: var(--bg-card); border-top: 1px solid var(--border-color); padding: 0 20px;">
+      <ul style="list-style: none; padding: 18px 0; display: flex; flex-direction: column; gap: 14px;">
+        <li><a href="#home" class="mobile-nav-link" onclick="CivilConnectApp.closeMobileMenu()">Home</a></li>
+        <li><a href="#jobs" class="mobile-nav-link" onclick="CivilConnectApp.closeMobileMenu()">Construction Jobs</a></li>
+        <li><a href="#workers" class="mobile-nav-link" onclick="CivilConnectApp.closeMobileMenu()">Workers Needed Now</a></li>
+        <li><a href="#sites" class="mobile-nav-link" onclick="CivilConnectApp.closeMobileMenu()">Construction Sites</a></li>
+        <li><a href="#notifications" class="mobile-nav-link" onclick="CivilConnectApp.closeMobileMenu()">Buldhana Notifications</a></li>
+        <li><a href="#dashboard" class="mobile-nav-link" onclick="CivilConnectApp.closeMobileMenu()">Role Dashboard</a></li>
+      </ul>
+      <div style="padding-bottom: 20px; display: flex; gap: 10px;">
+        <button class="btn-primary btn-sm" style="flex: 1;" onclick="CivilConnectApp.openLogin(); CivilConnectApp.closeMobileMenu();">Login</button>
+        <button class="btn-secondary btn-sm" style="flex: 1;" onclick="CivilConnectApp.openRegister(); CivilConnectApp.closeMobileMenu();">Register</button>
+      </div>
+    </div>
+  </header>
+
+
+  <!-- ========================================================
+       MAIN APP CONTAINER (SECTION 34: PAGE VIEWS)
+       ======================================================== -->
+  <main id="mainAppContent">
+
+    <!-- ======================================================
+         PAGE VIEW 1: HOME PAGE
+         ====================================================== -->
+    <div id="pageHome" class="page-view active-page">
+
+      <!-- SECTION 36: HERO SECTION -->
+      <section class="hero-section" id="hero">
+        <div class="container hero-grid-content">
+          
+          <!-- Hero Left Text -->
+          <div>
+            <div class="hero-badge-pill">
+              <i class="fa-solid fa-shield-halved"></i>
+              <span>Official Labour & Civil Portal of Buldhana District</span>
+            </div>
+
+            <!-- Heading animated line-by-line / word-by-word -->
+            <h1 class="hero-main-title" id="heroHeadline">
+              <span class="hero-word" style="animation-delay: 0.1s;">Find</span>
+              <span class="hero-word" style="animation-delay: 0.2s;">Construction</span>
+              <span class="hero-word highlight-text" style="animation-delay: 0.3s;">Work.</span>
+              <br />
+              <span class="hero-word" style="animation-delay: 0.4s;">Find</span>
+              <span class="hero-word" style="animation-delay: 0.5s;">Skilled</span>
+              <span class="hero-word highlight-text" style="animation-delay: 0.6s;">Workers.</span>
+            </h1>
+
+            <p class="hero-lead-text">
+              Connecting experienced masons, carpenters, RCC steel workers, and contractors across 13 Talukas — from Khamgaon & Mehkar to Buldhana, Shegaon, and Malkapur.
+            </p>
+
+            <div class="hero-buttons-row">
+              <button onclick="CivilConnectApp.scrollToSection('jobs')" class="btn-primary">
+                <i class="fa-solid fa-briefcase"></i>
+                Find Jobs Now
+              </button>
+
+              <button onclick="CivilConnectApp.openPostJobModal()" class="btn-secondary">
+                <i class="fa-solid fa-plus"></i>
+                Post Labour Requirement
+              </button>
+
+              <button onclick="CivilConnectApp.scrollToSection('sites')" class="btn-outline-amber">
+                <i class="fa-solid fa-building"></i>
+                Active Buldhana Sites
+              </button>
+            </div>
+
+            <!-- SECTION 36: ANIMATED STATISTICS (0 -> Dynamic Target) -->
+            <div class="hero-stats-grid">
+              
+              <div class="stat-box">
+                <span class="stat-counter-number" id="statWorkers">0</span>
+                <span class="stat-label">👷 Registered Workers</span>
+              </div>
+
+              <div class="stat-box">
+                <span class="stat-counter-number" id="statContractors">0</span>
+                <span class="stat-label">🏗️ Active Contractors</span>
+              </div>
+
+              <div class="stat-box">
+                <span class="stat-counter-number" id="statSites">0</span>
+                <span class="stat-label">🏢 Live Sites</span>
+              </div>
+
+              <div class="stat-box">
+                <span class="stat-counter-number" id="statJobs">0</span>
+                <span class="stat-label">🔨 Active Requirements</span>
+              </div>
+
+            </div>
+          </div>
+
+          <!-- Hero Right Visual Card -->
+          <div class="hero-visual-card reveal-init reveal-scale">
+            <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 16px;">
+              <span style="font-size: 13px; font-weight: 700; color: var(--brand-amber); text-transform: uppercase;">
+                <i class="fa-solid fa-circle-dot" style="margin-right: 6px;"></i> Live Buldhana Hiring Activity
+              </span>
+              <span style="font-size: 12px; background: rgba(16, 185, 129, 0.15); color: #10b981; padding: 2px 8px; border-radius: 12px; font-weight: 700;">Active Today</span>
+            </div>
+
+            <!-- Live Mini Cards Feed -->
+            <div style="display: flex; flex-direction: column; gap: 12px;">
+              
+              <div style="background: var(--bg-card-subtle); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(245, 158, 11, 0.2); color: var(--brand-amber); display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                  <i class="fa-solid fa-trowel-bricks"></i>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 13px; font-weight: 700;">8 Masons Needed at Khamgaon</div>
+                  <div style="font-size: 11.5px; color: var(--text-muted);">₹900/Day • Jalamb Naka Commercial</div>
+                </div>
+                <span class="urgent-pill urgent-badge-pulse" style="font-size: 10px;">URGENT</span>
+              </div>
+
+              <div style="background: var(--bg-card-subtle); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(59, 130, 246, 0.2); color: #3b82f6; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                  <i class="fa-solid fa-hospital"></i>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 13px; font-weight: 700;">Mehkar Hospital Extension</div>
+                  <div style="font-size: 11.5px; color: var(--text-muted);">30/35 Workers Active • 42% Completed</div>
+                </div>
+                <span style="font-size: 11px; font-weight: 700; color: #10b981;">Active</span>
+              </div>
+
+              <div style="background: var(--bg-card-subtle); border-radius: 12px; padding: 12px 14px; display: flex; align-items: center; gap: 12px;">
+                <div style="width: 38px; height: 38px; border-radius: 10px; background: rgba(16, 185, 129, 0.2); color: #10b981; display: flex; align-items: center; justify-content: center; font-size: 16px;">
+                  <i class="fa-solid fa-bolt"></i>
+                </div>
+                <div style="flex: 1;">
+                  <div style="font-size: 13px; font-weight: 700;">Shegaon Pilgrim Guest House</div>
+                  <div style="font-size: 11.5px; color: var(--text-muted);">2 Conduit Electricians Needed • ₹950/Day</div>
+                </div>
+                <span class="urgent-pill urgent-badge-pulse" style="font-size: 10px;">URGENT</span>
+              </div>
+
+            </div>
+
+            <!-- Quick Demo Role Switcher at Hero -->
+            <div style="margin-top: 18px; padding-top: 14px; border-top: 1px solid var(--border-color); display: flex; align-items: center; justify-content: space-between;">
+              <span style="font-size: 12px; font-weight: 600; color: var(--text-muted);">Test Platform As:</span>
+              <div style="display: flex; gap: 6px;">
+                <button class="role-chip-btn" onclick="CivilConnectApp.switchDemoRole('worker')">👷 Worker</button>
+                <button class="role-chip-btn" onclick="CivilConnectApp.switchDemoRole('contractor')">🏗️ Contractor</button>
+                <button class="role-chip-btn" onclick="CivilConnectApp.switchDemoRole('builder')">🏢 Builder</button>
+                <button class="role-chip-btn" onclick="CivilConnectApp.switchDemoRole('supervisor')">🦺 Supervisor</button>
+              </div>
+            </div>
+
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- SEARCH & FILTER SECTION -->
+      <section class="search-filter-section">
+        <div class="container">
+          <div class="search-filter-card">
+            
+            <!-- Search Keyword -->
+            <div class="search-input-group">
+              <i class="fa-solid fa-magnifying-glass"></i>
+              <input
+                type="text"
+                id="searchKeywordInput"
+                placeholder="Search job title, skill (Mason, Helper), or contractor..."
+              />
+            </div>
+
+            <!-- Buldhana Taluka Selector -->
+            <select id="filterTalukaSelect" class="custom-select">
+              <option value="all">All 13 Talukas (Buldhana)</option>
+              <option value="Khamgaon">Khamgaon</option>
+              <option value="Mehkar">Mehkar</option>
+              <option value="Buldhana">Buldhana (Sadar)</option>
+              <option value="Shegaon">Shegaon</option>
+              <option value="Chikhli">Chikhli</option>
+              <option value="Malkapur">Malkapur</option>
+              <option value="Jalgaon Jamod">Jalgaon Jamod</option>
+              <option value="Nandura">Nandura</option>
+              <option value="Deulgaon Raja">Deulgaon Raja</option>
+              <option value="Sindkhed Raja">Sindkhed Raja</option>
+              <option value="Lonar">Lonar</option>
+              <option value="Sangrampur">Sangrampur</option>
+              <option value="Motala">Motala</option>
+            </select>
+
+            <!-- Skill Category Selector -->
+            <select id="filterCategorySelect" class="custom-select">
+              <option value="all">All Work Categories</option>
+              <option value="Mason">Mason (गवंडी)</option>
+              <option value="Helper">Construction Helper (मजूर)</option>
+              <option value="Carpenter">Carpenter (सुतार)</option>
+              <option value="Painter">Painter (रंगारी)</option>
+              <option value="Plumber">Plumber (प्लंबर)</option>
+              <option value="Electrician">Electrician (इलेक्ट्रिशियन)</option>
+              <option value="RCC Worker">RCC Steel Worker (आरसीसी कामगार)</option>
+              <option value="Road Worker">Road Worker (रस्ता कामगार)</option>
+              <option value="Tile Mason">Tile & Marble Mason (फरशी)</option>
+              <option value="Welder">Welder (वेल्डर)</option>
+            </select>
+
+            <!-- Filter Buttons -->
+            <div style="display: flex; gap: 8px;">
+              <button id="btnApplySearch" class="btn-primary" style="padding: 12px 20px;">
+                <i class="fa-solid fa-filter"></i> Search
+              </button>
+              <button id="btnResetFilters" class="btn-secondary" style="padding: 12px 14px;" title="Reset Filters">
+                <i class="fa-solid fa-rotate"></i>
+              </button>
+            </div>
+
+          </div>
+        </div>
+      </section>
+
+
+      <!-- CATEGORIES SECTION -->
+      <section class="container" style="padding: 50px 20px 20px 20px;">
+        <div class="section-title-wrap" style="text-align: center; margin-bottom: 30px;">
+          <h2>Construction Work Categories</h2>
+          <p>Find jobs and labour requirements tailored to your specific trade skill</p>
+        </div>
+
+        <div style="display: grid; grid-template-columns: repeat(auto-fill, minmax(130px, 1fr)); gap: 14px;">
+          
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Mason')">
+            <i class="fa-solid fa-trowel-bricks" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Mason</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">गवंडी काम</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Helper')">
+            <i class="fa-solid fa-person-digging" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Helper</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">बांधकाम मजूर</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Carpenter')">
+            <i class="fa-solid fa-hammer" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Carpenter</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">सेंटरिंग सुतार</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Painter')">
+            <i class="fa-solid fa-paint-roller" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Painter</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">रंगकाम</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Plumber')">
+            <i class="fa-solid fa-faucet" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Plumber</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">प्लंबिंग</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Electrician')">
+            <i class="fa-solid fa-bolt" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Electrician</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">वायरिंग</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('RCC Worker')">
+            <i class="fa-solid fa-cubes-stacked" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">RCC Steel</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">सळई कामगार</span>
+          </div>
+
+          <div class="role-card-item" style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 14px; padding: 18px 12px; text-align: center;" onclick="CivilConnectApp.filterByCategory('Tile Mason')">
+            <i class="fa-solid fa-border-all" style="font-size: 26px; color: var(--brand-amber); margin-bottom: 8px;"></i>
+            <h4 style="font-size: 13.5px; font-weight: 700;">Tile Mason</h4>
+            <span style="font-size: 11px; color: var(--text-muted);">फरशी काम</span>
+          </div>
+
+        </div>
+      </section>
+
+
+      <!-- SECTION 38: "WORKERS NEEDED NOW" (URGENT SECTION) -->
+      <section class="urgent-section" id="workers">
+        <div class="container">
+          <div class="section-header-row">
+            <div class="section-title-wrap">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <span class="urgent-dot-pulse"></span>
+                <span style="color: #ef4444; font-weight: 800; font-size: 13px; text-transform: uppercase; letter-spacing: 0.05em;">Live Urgent Requirements</span>
+              </div>
+              <h2>Workers Needed Now</h2>
+              <p>Immediate daily deployments in Buldhana District with confirmed contractor wages</p>
+            </div>
+            <div>
+              <button onclick="CivilConnectApp.filterUrgentOnly()" class="btn-secondary btn-sm">
+                <i class="fa-solid fa-fire" style="color: #ef4444;"></i> View All Urgent Jobs
+              </button>
+            </div>
+          </div>
+
+          <div class="urgent-cards-grid" id="urgentWorkersContainer">
+            <!-- Dynamic Urgent Cards generated by app.js -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 37: CONSTRUCTION JOB CARDS -->
+      <section class="jobs-section" id="jobs">
+        <div class="container">
+          <div class="section-header-row">
+            <div class="section-title-wrap">
+              <h2>Latest Civil & Construction Jobs</h2>
+              <p>Browse open job orders from registered contractors across Buldhana Talukas</p>
+            </div>
+            <div>
+              <button onclick="CivilConnectApp.openPostJobModal()" class="btn-primary btn-sm">
+                <i class="fa-solid fa-plus"></i> Post Requirement
+              </button>
+            </div>
+          </div>
+
+          <div class="jobs-grid" id="jobsContainer">
+            <!-- Dynamic Job Cards rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 39: ACTIVE CONSTRUCTION SITES -->
+      <section class="sites-section" id="sites">
+        <div class="container">
+          <div class="section-header-row">
+            <div class="section-title-wrap">
+              <h2>🏗️ Active Construction Sites in Buldhana</h2>
+              <p>Commercial complexes, public infrastructure, and residential developments</p>
+            </div>
+            <div>
+              <button onclick="CivilConnectApp.openAddSiteModal()" class="btn-secondary btn-sm">
+                <i class="fa-solid fa-plus"></i> Register New Site
+              </button>
+            </div>
+          </div>
+
+          <div class="sites-grid" id="sitesContainer">
+            <!-- Dynamic Sites rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+
+      <!-- SECTION 40: BULDHANA NOTIFICATIONS SECTION -->
+      <section class="notifications-section" id="notifications">
+        <div class="container">
+          <div class="section-header-row">
+            <div class="section-title-wrap">
+              <div style="display: flex; align-items: center; gap: 8px;">
+                <i class="fa-solid fa-bell bell-chime-icon" style="color: var(--brand-amber);"></i>
+                <span style="color: var(--brand-amber); font-weight: 700; font-size: 13px; text-transform: uppercase;">Real-time District Feed</span>
+              </div>
+              <h2>Latest Buldhana Construction Updates</h2>
+              <p>Site announcements, wage alerts, and rapid recruitment drives</p>
+            </div>
+            <div style="display: flex; gap: 10px;">
+              <button onclick="CivilConnectApp.simulateNewNotification()" class="btn-secondary btn-sm" title="Test Live Alert Trigger">
+                <i class="fa-solid fa-bolt" style="color: var(--brand-amber);"></i> Simulate Live Alert
+              </button>
+              <button onclick="CivilConnectApp.markAllNotificationsRead()" class="btn-secondary btn-sm">
+                <i class="fa-solid fa-check-double"></i> Mark All Read
+              </button>
+            </div>
+          </div>
+
+          <!-- Taluka Filter Tabs -->
+          <div class="notifications-filter-tabs" id="notifTalukaTabs">
+            <button class="filter-tab-btn active" onclick="CivilConnectApp.filterNotifsByTaluka('all')">All Buldhana</button>
+            <button class="filter-tab-btn" onclick="CivilConnectApp.filterNotifsByTaluka('Khamgaon')">Khamgaon</button>
+            <button class="filter-tab-btn" onclick="CivilConnectApp.filterNotifsByTaluka('Mehkar')">Mehkar</button>
+            <button class="filter-tab-btn" onclick="CivilConnectApp.filterNotifsByTaluka('Buldhana')">Buldhana</button>
+            <button class="filter-tab-btn" onclick="CivilConnectApp.filterNotifsByTaluka('Shegaon')">Shegaon</button>
+            <button class="filter-tab-btn" onclick="CivilConnectApp.filterNotifsByTaluka('Chikhli')">Chikhli</button>
+            <button class="filter-tab-btn" onclick="CivilConnectApp.filterNotifsByTaluka('Lonar')">Lonar</button>
+          </div>
+
+          <div class="notifications-list" id="notificationsContainer">
+            <!-- Dynamic Notifications rendered by app.js -->
+          </div>
+        </div>
+      </section>
+
+    </div>
+
+
+    <!-- ======================================================
+         PAGE VIEW 2: ROLE-SPECIFIC DASHBOARD (SECTION 46 & 47)
+         ====================================================== -->
+    <div id="pageDashboard" class="page-view">
+      <div class="container dashboard-view-container">
+        
+        <!-- SECTION 46: ROLE-SPECIFIC WELCOME BANNER -->
+        <div class="role-welcome-banner">
+          <div class="role-welcome-text">
+            <h2 id="roleWelcomeHeading">Welcome back, Ramesh Jadhav 👷</h2>
+            <p id="roleWelcomeSubtitle">Let's find your next construction opportunity in Buldhana District.</p>
+          </div>
+
+          <!-- Quick Role Switcher (Section 46) -->
+          <div class="role-switcher-chips">
+            <span style="font-size: 12px; font-weight: 700; color: var(--text-muted); margin-right: 4px;">SWITCH VIEW:</span>
+            <button class="role-chip-btn active" id="chipWorker" onclick="CivilConnectApp.switchDemoRole('worker')">👷 Worker</button>
+            <button class="role-chip-btn" id="chipContractor" onclick="CivilConnectApp.switchDemoRole('contractor')">🏗️ Contractor</button>
+            <button class="role-chip-btn" id="chipBuilder" onclick="CivilConnectApp.switchDemoRole('builder')">🏢 Builder</button>
+            <button class="role-chip-btn" id="chipSupervisor" onclick="CivilConnectApp.switchDemoRole('supervisor')">🦺 Supervisor</button>
+          </div>
+        </div>
+
+        <!-- SECTION 47: ANIMATED DASHBOARD METRICS (0 -> Target) -->
+        <div class="dashboard-stats-row" id="dashboardStatsRow">
+          <!-- Dynamically populated per role -->
+        </div>
+
+        <!-- SECTION 47: CHARTS SECTION (Taluka Bar Chart & Skills Doughnut & Hiring Area) -->
+        <div class="dashboard-charts-grid">
+          
+          <!-- Chart 1: Jobs by Taluka Bar Chart -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div>
+                <h3>Jobs by Buldhana Taluka</h3>
+                <p style="font-size: 12px; color: var(--text-muted);">Active labour requirements distribution</p>
+              </div>
+              <span style="font-size: 12px; font-weight: 700; color: var(--brand-amber);">13 Talukas</span>
+            </div>
+            <div id="talukaChartContainer" style="min-height: 200px;"></div>
+          </div>
+
+          <!-- Chart 2: Workers by Skill Doughnut Chart -->
+          <div class="chart-card">
+            <div class="chart-card-header">
+              <div>
+                <h3>Workers by Trade Skill</h3>
+                <p style="font-size: 12px; color: var(--text-muted);">Mason, RCC, Helper, Carpenter & Electrician</p>
+              </div>
+              <span style="font-size: 12px; font-weight: 700; color: #10b981;">Verified Trades</span>
+            </div>
+            <div id="skillChartContainer" style="min-height: 200px; display: flex; align-items: center; justify-content: center;"></div>
+          </div>
+
+        </div>
+
+        <!-- Area Chart: Monthly Hiring Trends -->
+        <div class="chart-card" style="margin-bottom: 32px;">
+          <div class="chart-card-header">
+            <div>
+              <h3>Buldhana District Construction Labour Hiring Trends (2026)</h3>
+              <p style="font-size: 12px; color: var(--text-muted);">Monthly comparison of Labour Demand vs Filled Positions</p>
+            </div>
+            <span style="font-size: 12px; background: rgba(245, 158, 11, 0.15); color: var(--brand-amber); padding: 4px 10px; border-radius: 8px; font-weight: 700;">+38% Seasonal Growth</span>
+          </div>
+          <div id="hiringChartContainer"></div>
+        </div>
+
+        <!-- Role Specific Main Content Tab Panes -->
+        <div id="roleSpecificPanes">
+          <!-- Dynamically rendered (My Applications, Contractor Job Postings, Site Workforce, Supervisor Muster Roll) -->
+        </div>
+
+      </div>
+    </div>
+
+
+    <!-- ======================================================
+         PAGE VIEW 3: ABOUT BULDHANA SECTION
+         ====================================================== -->
+    <div id="pageAbout" class="page-view">
+      <div class="container" style="padding: 60px 20px 80px 20px; max-width: 900px;">
+        <div class="section-title-wrap" style="text-align: center; margin-bottom: 36px;">
+          <h2>About CivilConnect Buldhana</h2>
+          <p>Digitizing construction labour, contracting, and site supervision across Vidarbha</p>
+        </div>
+
+        <div style="background: var(--bg-card); border: 1px solid var(--border-color); border-radius: 18px; padding: 32px; box-shadow: var(--card-shadow); line-height: 1.7;">
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--brand-amber); margin-bottom: 12px;">
+            🏗️ Our Mission
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 24px;">
+            CivilConnect is built specifically for the civil engineering and construction ecosystem of <strong>Buldhana District, Maharashtra</strong>. Our platform bridges the gap between daily-wage construction labourers, skilled masons, shuttering carpenters, civil contractors, builders, and on-site supervisors.
+          </p>
+
+          <h3 style="font-size: 20px; font-weight: 800; color: var(--brand-amber); margin-bottom: 12px;">
+            📍 Comprehensive 13 Taluka Coverage
+          </h3>
+          <p style="color: var(--text-secondary); margin-bottom: 16px;">
+            Whether a site requires 20 helpers in <strong>Khamgaon</strong>, foundation masons in <strong>Mehkar</strong>, heritage artisans at <strong>Sindkhed Raja</strong>, temple guest house electricians in <strong>Shegaon</strong>, or irrigation wall stone layers in <strong>Motala</strong>, CivilConnect enables instant direct contact without predatory middleman commissions.
+          </p>
+
+          <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-top: 24px;">
+            <div style="background: var(--bg-card-subtle); padding: 14px 18px; border-radius: 10px; border-left: 3px solid var(--brand-amber);">
+              <strong>Khamgaon & Mehkar</strong>
+              <p style="font-size: 12.5px; color: var(--text-muted);">Commercial hubs & residential complexes</p>
+            </div>
+            <div style="background: var(--bg-card-subtle); padding: 14px 18px; border-radius: 10px; border-left: 3px solid var(--brand-amber);">
+              <strong>Shegaon & Lonar</strong>
+              <p style="font-size: 12.5px; color: var(--text-muted);">Pilgrimage and eco-tourism infrastructure</p>
+            </div>
+            <div style="background: var(--bg-card-subtle); padding: 14px 18px; border-radius: 10px; border-left: 3px solid var(--brand-amber);">
+              <strong>Buldhana & Chikhli</strong>
+              <p style="font-size: 12.5px; color: var(--text-muted);">Government administrative complexes & APMC</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </main>
+
+
+  <!-- ========================================================
+       FOOTER
+       ======================================================== -->
+  <footer class="main-footer" id="about">
+    <div class="container">
+      <div class="footer-grid">
+        
+        <!-- Brand Col -->
+        <div class="footer-brand">
+          <h3>
+            <i class="fa-solid fa-helmet-safety" style="color: var(--brand-amber); margin-right: 6px;"></i>
+            Civil<span>Connect</span>
+          </h3>
+          <p>
+            Buldhana District's premier construction workforce platform. Connecting construction workers, contractors, and builders with transparent wages and reliable projects.
+          </p>
+        </div>
+
+        <!-- Links 1 -->
+        <div class="footer-col">
+          <h4>For Workers</h4>
+          <ul>
+            <li><a href="#jobs">Find Construction Jobs</a></li>
+            <li><a href="#workers">Urgent Work Today</a></li>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.openRegisterWithRole('worker')">Worker Registration</a></li>
+            <li><a href="#dashboard">Wage Rates & Minimums</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 2 -->
+        <div class="footer-col">
+          <h4>For Contractors</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.openPostJobModal()">Post Labour Requirement</a></li>
+            <li><a href="#sites">Active Site Directory</a></li>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.openRegisterWithRole('contractor')">Contractor Enrolment</a></li>
+            <li><a href="#dashboard">Supervisor Muster Roll</a></li>
+          </ul>
+        </div>
+
+        <!-- Links 3 -->
+        <div class="footer-col">
+          <h4>Buldhana Talukas</h4>
+          <ul>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.filterByTaluka('Khamgaon')">Khamgaon Taluka</a></li>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.filterByTaluka('Mehkar')">Mehkar Taluka</a></li>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.filterByTaluka('Buldhana')">Buldhana City</a></li>
+            <li><a href="javascript:void(0)" onclick="CivilConnectApp.filterByTaluka('Shegaon')">Shegaon Taluka</a></li>
+          </ul>
+        </div>
+
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="footer-bottom-row">
+        <div>
+          © 2026 CivilConnect. Serving Buldhana District, Maharashtra. All rights reserved.
+        </div>
+        <div style="display: flex; gap: 18px;">
+          <a href="javascript:void(0)">Privacy Policy</a>
+          <a href="javascript:void(0)">Labour Regulations</a>
+          <a href="javascript:void(0)">Site Safety Standards</a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+
+  <!-- ========================================================
+       SECTION 33: LOGIN MODAL (WITH SIDE VISUAL & PASSWORD EYE)
+       ======================================================== -->
+  <div id="loginModal" class="modal-overlay-backdrop">
+    <div class="modal-card modal-content-slide" style="max-width: 760px;">
+      <button class="modal-close-btn" onclick="CivilConnectApp.closeLogin()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div class="login-grid-layout">
+        
+        <!-- Left Side Construction Visual -->
+        <div class="login-side-visual">
+          <div>
+            <div style="width: 48px; height: 48px; border-radius: 12px; background: rgba(245, 158, 11, 0.2); color: var(--brand-amber); display: flex; align-items: center; justify-content: center; font-size: 24px; margin-bottom: 18px;">
+              <i class="fa-solid fa-helmet-safety"></i>
+            </div>
+            <h3 style="font-size: 22px; font-weight: 800; line-height: 1.25; margin-bottom: 10px;">
+              Welcome Back to CivilConnect
+            </h3>
+            <p style="font-size: 13.5px; color: #cbd5e1; line-height: 1.5;">
+              Access your Buldhana construction dashboard, live job applications, or manage active site workforce.
+            </p>
+          </div>
+
+          <div style="background: rgba(255, 255, 255, 0.06); padding: 14px; border-radius: 10px; border-left: 3px solid var(--brand-amber);">
+            <div style="font-size: 12px; font-weight: 700; color: var(--brand-amber); margin-bottom: 2px;">SAFETY FIRST</div>
+            <div style="font-size: 11.5px; color: #94a3b8;">"Hard hat, safety boots, and verified skills ensure safe and prosperous construction."</div>
+          </div>
+        </div>
+
+        <!-- Right Side Form -->
+        <div class="login-form-pane">
+          <h2 style="font-size: 22px; font-weight: 800; margin-bottom: 6px; color: var(--text-primary);">Account Login</h2>
+          <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 22px;">Select your role or enter your credentials</p>
+
+          <form id="loginForm" onsubmit="CivilConnectApp.handleLoginSubmit(event)">
+            
+            <div class="form-group">
+              <label>Role</label>
+              <select id="loginRoleSelect" class="form-control custom-input">
+                <option value="worker">👷 Worker / Labour</option>
+                <option value="contractor">🏗️ Contractor</option>
+                <option value="builder">🏢 Builder / Site Owner</option>
+                <option value="supervisor">🦺 Construction Supervisor</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Mobile Number or Email</label>
+              <input type="text" id="loginIdentifierInput" class="form-control custom-input" placeholder="e.g. 9822101122 or email" value="9822101122" required />
+            </div>
+
+            <div class="form-group">
+              <label>Password</label>
+              <div style="position: relative; display: flex; align-items: center;">
+                <input type="password" id="loginPasswordInput" class="form-control custom-input" placeholder="Enter password" value="password123" required />
+                <button type="button" class="eye-toggle-btn" onclick="CivilConnectApp.togglePasswordVisibility('loginPasswordInput', this)" style="position: absolute; right: 12px; background: transparent; border: none; cursor: pointer; color: var(--text-muted); font-size: 15px;">
+                  <i class="fa-solid fa-eye"></i>
+                </button>
+              </div>
+            </div>
+
+            <button type="submit" id="loginSubmitBtn" class="btn-primary" style="width: 100%; margin-top: 6px;">
+              <i class="fa-solid fa-right-to-bracket"></i> Login
+            </button>
+          </form>
+
+          <!-- 1-Click Instant Demo Login Buttons -->
+          <div style="margin-top: 20px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+            <div style="font-size: 11.5px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; margin-bottom: 8px;">
+              Quick 1-Click Demo Accounts:
+            </div>
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 6px;">
+              <button class="btn-secondary btn-sm" onclick="CivilConnectApp.quickLogin('worker')">👷 Demo Worker</button>
+              <button class="btn-secondary btn-sm" onclick="CivilConnectApp.quickLogin('contractor')">🏗️ Demo Contractor</button>
+              <button class="btn-secondary btn-sm" onclick="CivilConnectApp.quickLogin('builder')">🏢 Demo Builder</button>
+              <button class="btn-secondary btn-sm" onclick="CivilConnectApp.quickLogin('supervisor')">🦺 Demo Supervisor</button>
+            </div>
+          </div>
+
+          <p style="margin-top: 18px; font-size: 13px; text-align: center; color: var(--text-muted);">
+            Don't have an account? 
+            <a href="javascript:void(0)" onclick="CivilConnectApp.switchToRegister()" style="color: var(--brand-amber); font-weight: 700;">
+              Register (5-Step)
+            </a>
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       SECTION 33: MULTI-STEP REGISTRATION MODAL (5 STEPS)
+       ======================================================== -->
+  <div id="registerModal" class="modal-overlay-backdrop">
+    <div class="modal-card modal-content-slide" style="max-width: 680px;">
+      <button class="modal-close-btn" onclick="CivilConnectApp.closeRegister()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <!-- Step Progress Header -->
+      <div class="registration-progress-header">
+        <div style="display: flex; align-items: center; justify-content: space-between;">
+          <h3 style="font-size: 18px; font-weight: 800; color: var(--text-primary);">Create CivilConnect Account</h3>
+          <span id="stepProgressLabel" style="font-size: 12.5px; font-weight: 700; color: var(--brand-amber);">Step 1 of 5</span>
+        </div>
+        
+        <!-- Progress track with animated line and 5 nodes -->
+        <div class="step-indicator-track">
+          <div class="step-track-bg-line"></div>
+          <div class="step-track-active-line" id="stepTrackActiveLine" style="width: 0%;"></div>
+
+          <div class="step-circle active" id="stepNode1">1</div>
+          <div class="step-circle" id="stepNode2">2</div>
+          <div class="step-circle" id="stepNode3">3</div>
+          <div class="step-circle" id="stepNode4">4</div>
+          <div class="step-circle" id="stepNode5">5</div>
+        </div>
+
+        <div style="display: flex; justify-content: space-between; font-size: 10px; color: var(--text-muted); margin-top: 6px; font-weight: 600;">
+          <span>Basic Info</span>
+          <span>Location</span>
+          <span>Skills / Role</span>
+          <span>Experience</span>
+          <span>Availability</span>
+        </div>
+      </div>
+
+      <!-- Registration Form Body -->
+      <div class="registration-body">
+        <form id="multiStepForm" onsubmit="CivilConnectApp.handleRegisterSubmit(event)">
+
+          <!-- STEP 1: Basic Information -->
+          <div class="step-pane active" id="stepPane1">
+            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Step 1: Basic Information</h4>
+            
+            <div class="form-group">
+              <label>Select Role</label>
+              <select id="regRoleSelect" class="form-control custom-input" onchange="CivilConnectApp.handleRegRoleChange()">
+                <option value="worker">👷 Worker / Labour</option>
+                <option value="contractor">🏗️ Contractor</option>
+                <option value="builder">🏢 Builder / Site Owner</option>
+                <option value="supervisor">🦺 Construction Supervisor</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Full Name</label>
+              <input type="text" id="regFullNameInput" class="form-control custom-input" placeholder="e.g. Ramesh Jadhav" required />
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-group">
+                <label>Mobile Number</label>
+                <input type="tel" id="regPhoneInput" class="form-control custom-input" placeholder="10-digit mobile" required />
+              </div>
+              <div class="form-group">
+                <label>Email Address (Optional)</label>
+                <input type="email" id="regEmailInput" class="form-control custom-input" placeholder="name@example.com" />
+              </div>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-group">
+                <label>Password</label>
+                <input type="password" id="regPasswordInput" class="form-control custom-input" placeholder="Create password" required />
+              </div>
+              <div class="form-group">
+                <label>Confirm Password</label>
+                <input type="password" id="regConfirmPasswordInput" class="form-control custom-input" placeholder="Repeat password" required />
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 2: Location (Buldhana District Focus) -->
+          <div class="step-pane" id="stepPane2">
+            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Step 2: Buldhana District Location</h4>
+            
+            <div class="form-group">
+              <label>Taluka</label>
+              <select id="regTalukaSelect" class="form-control custom-input" required>
+                <option value="Khamgaon">Khamgaon</option>
+                <option value="Mehkar">Mehkar</option>
+                <option value="Buldhana" selected>Buldhana</option>
+                <option value="Shegaon">Shegaon</option>
+                <option value="Chikhli">Chikhli</option>
+                <option value="Malkapur">Malkapur</option>
+                <option value="Jalgaon Jamod">Jalgaon Jamod</option>
+                <option value="Nandura">Nandura</option>
+                <option value="Deulgaon Raja">Deulgaon Raja</option>
+                <option value="Sindkhed Raja">Sindkhed Raja</option>
+                <option value="Lonar">Lonar</option>
+                <option value="Sangrampur">Sangrampur</option>
+                <option value="Motala">Motala</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Village / City Area / Ward</label>
+              <input type="text" id="regVillageInput" class="form-control custom-input" placeholder="e.g. Ghatpuri Road or Dongaon Village" required />
+            </div>
+
+            <div class="form-group">
+              <label>Pincode / Landmark</label>
+              <input type="text" id="regPincodeInput" class="form-control custom-input" placeholder="e.g. 443301, Near Bus Stand" />
+            </div>
+          </div>
+
+          <!-- STEP 3: Skills / Role Details -->
+          <div class="step-pane" id="stepPane3">
+            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Step 3: Skills & Specialization</h4>
+            
+            <!-- Dynamic for Worker -->
+            <div id="regWorkerSkillsBlock">
+              <label style="display: block; font-size: 13.5px; font-weight: 600; margin-bottom: 8px;">Select Trade Skills (Multiple)</label>
+              <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 14px;">
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="skills" value="Mason" checked />
+                  <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+                  <span style="font-size: 13px;">Mason (गवंडी)</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="skills" value="Helper" />
+                  <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+                  <span style="font-size: 13px;">Helper (मजूर)</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="skills" value="Carpenter" />
+                  <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+                  <span style="font-size: 13px;">Carpenter (सुतार)</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="skills" value="RCC Worker" />
+                  <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+                  <span style="font-size: 13px;">RCC Steel Binder</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="skills" value="Painter" />
+                  <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+                  <span style="font-size: 13px;">Painter (रंगारी)</span>
+                </label>
+                <label class="custom-checkbox">
+                  <input type="checkbox" name="skills" value="Electrician" />
+                  <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+                  <span style="font-size: 13px;">Electrician (वायरिंग)</span>
+                </label>
+              </div>
+            </div>
+
+            <!-- Dynamic for Contractor / Builder -->
+            <div id="regCompanyBlock" style="display: none;">
+              <div class="form-group">
+                <label>Firm / Company / Contractor Name</label>
+                <input type="text" id="regCompanyNameInput" class="form-control custom-input" placeholder="e.g. Patil Civil Infra & Earthmovers" />
+              </div>
+              <div class="form-group">
+                <label>Contractor License or GST No. (Optional)</label>
+                <input type="text" id="regLicenseInput" class="form-control custom-input" placeholder="e.g. MH-28-BLD-C-4091" />
+              </div>
+            </div>
+          </div>
+
+          <!-- STEP 4: Experience & Rates -->
+          <div class="step-pane" id="stepPane4">
+            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Step 4: Experience & Rates</h4>
+            
+            <div class="form-group">
+              <label>Years in Construction Work</label>
+              <select id="regExpSelect" class="form-control custom-input">
+                <option value="1-2 Years">1-2 Years</option>
+                <option value="3-5 Years" selected>3-5 Years</option>
+                <option value="6-10 Years">6-10 Years</option>
+                <option value="10+ Years">10+ Years (Senior)</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Expected / Standard Daily Wage (₹ / Day)</label>
+              <input type="number" id="regWageInput" class="form-control custom-input" placeholder="e.g. 850" value="850" />
+            </div>
+
+            <div class="form-group">
+              <label>Notable Construction Work / Past Projects in Buldhana</label>
+              <textarea id="regProjectsInput" class="form-control custom-input" rows="2" placeholder="e.g. Worked on Khamgaon shopping complex, slab casting, brickwork..."></textarea>
+            </div>
+          </div>
+
+          <!-- STEP 5: Availability & Preferences -->
+          <div class="step-pane" id="stepPane5">
+            <h4 style="font-size: 16px; font-weight: 700; margin-bottom: 14px; color: var(--text-primary);">Step 5: Availability & Preferences</h4>
+            
+            <div class="form-group">
+              <label>Joining Availability</label>
+              <select id="regAvailabilitySelect" class="form-control custom-input">
+                <option value="Immediately Available" selected>Immediately Available (Today / Tomorrow)</option>
+                <option value="Available from Next Week">Available from Next Week</option>
+                <option value="Weekends Only">Weekends Only</option>
+              </select>
+            </div>
+
+            <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+              <div class="form-group">
+                <label>Preferred Shift</label>
+                <select id="regShiftSelect" class="form-control custom-input">
+                  <option value="Day Shift (8:30 AM - 5:30 PM)" selected>Day Shift</option>
+                  <option value="Night Shift (Concrete Pouring)">Night Shift</option>
+                  <option value="Any Shift">Any Shift</option>
+                </select>
+              </div>
+
+              <div class="form-group">
+                <label>Own Transport</label>
+                <select id="regTransportSelect" class="form-control custom-input">
+                  <option value="Own Two Wheeler" selected>Own Bike / Moped</option>
+                  <option value="Local ST Bus">Local ST Bus</option>
+                  <option value="Contractor Pickup Needed">Contractor Pickup Needed</option>
+                </select>
+              </div>
+            </div>
+
+            <div style="background: rgba(16, 185, 129, 0.1); border: 1px solid rgba(16, 185, 129, 0.3); padding: 12px; border-radius: 10px; margin-top: 10px;">
+              <p style="font-size: 12px; color: #10b981; font-weight: 600;">
+                ✓ By completing registration, your profile will be immediately visible to active contractors across Buldhana District.
+              </p>
+            </div>
+          </div>
+
+          <!-- Step Navigation Controls -->
+          <div style="display: flex; align-items: center; justify-content: space-between; margin-top: 26px; padding-top: 16px; border-top: 1px solid var(--border-color);">
+            <button type="button" id="regPrevBtn" class="btn-secondary" onclick="CivilConnectApp.prevRegStep()" style="display: none;">
+              <i class="fa-solid fa-arrow-left"></i> Previous
+            </button>
+            <div style="margin-left: auto; display: flex; gap: 10px;">
+              <button type="button" id="regNextBtn" class="btn-primary" onclick="CivilConnectApp.nextRegStep()">
+                Next Step <i class="fa-solid fa-arrow-right"></i>
+              </button>
+              <button type="submit" id="regSubmitBtn" class="btn-primary" style="display: none;">
+                <i class="fa-solid fa-check"></i> Complete Registration
+              </button>
+            </div>
+          </div>
+
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       JOB DETAIL / APPLY MODAL
+       ======================================================== -->
+  <div id="jobDetailModal" class="modal-overlay-backdrop">
+    <div class="modal-card modal-content-slide" style="max-width: 620px;">
+      <button class="modal-close-btn" onclick="CivilConnectApp.closeJobDetail()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="padding: 30px;">
+        <div style="display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px;">
+          <span class="urgent-pill" id="jobModalUrgentBadge" style="display: none;">URGENT</span>
+          <span id="jobModalCategory" style="font-size: 12px; font-weight: 700; color: var(--brand-amber); text-transform: uppercase;">Mason</span>
+        </div>
+
+        <h2 id="jobModalTitle" style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 14px;">
+          Experienced Mason Required
+        </h2>
+
+        <div style="background: var(--bg-card-subtle); padding: 16px; border-radius: 12px; margin-bottom: 18px; display: grid; grid-template-columns: 1fr 1fr; gap: 12px; font-size: 13.5px;">
+          <div><i class="fa-solid fa-location-dot" style="color: var(--brand-amber); width: 20px;"></i> <strong id="jobModalLocation">Khamgaon</strong></div>
+          <div><i class="fa-solid fa-indian-rupee-sign" style="color: #10b981; width: 20px;"></i> <strong id="jobModalWage">₹900 Per Day</strong></div>
+          <div><i class="fa-solid fa-users" style="color: #3b82f6; width: 20px;"></i> <span id="jobModalWorkers">8 Workers Needed</span></div>
+          <div><i class="fa-solid fa-hard-hat" style="color: var(--brand-amber); width: 20px;"></i> <span id="jobModalContractor">Patil Buildcon</span></div>
+        </div>
+
+        <div style="margin-bottom: 20px;">
+          <h4 style="font-size: 14px; font-weight: 700; margin-bottom: 6px;">Job Description & Site Requirements:</h4>
+          <p id="jobModalDescription" style="font-size: 13.5px; color: var(--text-secondary); line-height: 1.6;">
+            Details about this requirement...
+          </p>
+        </div>
+
+        <!-- Application Form -->
+        <div style="border-top: 1px solid var(--border-color); padding-top: 18px;">
+          <h4 style="font-size: 15px; font-weight: 700; margin-bottom: 12px;">Apply for this Requirement:</h4>
+          <div class="form-group">
+            <label>Notes / Personal Tools Available</label>
+            <input type="text" id="applyNotesInput" class="form-control custom-input" placeholder="e.g. Ready with own trowel and boots, 4 workers available in team" />
+          </div>
+          <button id="btnSubmitApplication" class="btn-primary" style="width: 100%;" onclick="CivilConnectApp.submitJobApplication()">
+            <i class="fa-solid fa-paper-plane"></i> Submit Application
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       POST JOB MODAL (CONTRACTOR)
+       ======================================================== -->
+  <div id="postJobModal" class="modal-overlay-backdrop">
+    <div class="modal-card modal-content-slide" style="max-width: 620px;">
+      <button class="modal-close-btn" onclick="CivilConnectApp.closePostJobModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="padding: 30px;">
+        <h2 style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;">
+          Post Construction Labour Requirement
+        </h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+          Publish open worker positions directly to Buldhana's construction workforce.
+        </p>
+
+        <form id="postJobForm" onsubmit="CivilConnectApp.handlePostJobSubmit(event)">
+          <div class="form-group">
+            <label>Requirement Title</label>
+            <input type="text" id="postJobTitleInput" class="form-control custom-input" placeholder="e.g. 10 Masons Needed for Commercial Complex" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label>Work Category</label>
+              <select id="postJobCategorySelect" class="form-control custom-input" required>
+                <option value="Mason">Mason (गवंडी)</option>
+                <option value="Helper">Helper (मजूर)</option>
+                <option value="Carpenter">Carpenter (सुतार)</option>
+                <option value="Painter">Painter (रंगारी)</option>
+                <option value="Plumber">Plumber (प्लंबर)</option>
+                <option value="Electrician">Electrician (इलेक्ट्रिशियन)</option>
+                <option value="RCC Worker">RCC Steel Worker</option>
+                <option value="Road Worker">Road Worker</option>
+                <option value="Tile Mason">Tile Mason</option>
+                <option value="Welder">Welder</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Taluka</label>
+              <select id="postJobTalukaSelect" class="form-control custom-input" required>
+                <option value="Khamgaon">Khamgaon</option>
+                <option value="Mehkar">Mehkar</option>
+                <option value="Buldhana" selected>Buldhana</option>
+                <option value="Shegaon">Shegaon</option>
+                <option value="Chikhli">Chikhli</option>
+                <option value="Malkapur">Malkapur</option>
+                <option value="Jalgaon Jamod">Jalgaon Jamod</option>
+                <option value="Nandura">Nandura</option>
+                <option value="Deulgaon Raja">Deulgaon Raja</option>
+                <option value="Sindkhed Raja">Sindkhed Raja</option>
+                <option value="Lonar">Lonar</option>
+                <option value="Sangrampur">Sangrampur</option>
+                <option value="Motala">Motala</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label>Daily Wage Offered (₹ / Day)</label>
+              <input type="number" id="postJobWageInput" class="form-control custom-input" placeholder="e.g. 900" required />
+            </div>
+
+            <div class="form-group">
+              <label>Workers Required</label>
+              <input type="number" id="postJobWorkersInput" class="form-control custom-input" placeholder="e.g. 6" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Specific Site Location / Landmark</label>
+            <input type="text" id="postJobLocationInput" class="form-control custom-input" placeholder="e.g. Near Jalamb Naka, Khamgaon" required />
+          </div>
+
+          <div class="form-group">
+            <label>Description & Shift Details</label>
+            <textarea id="postJobDescInput" class="form-control custom-input" rows="2" placeholder="Describe the work, timing, payment schedule..." required></textarea>
+          </div>
+
+          <div class="form-group">
+            <label class="custom-checkbox">
+              <input type="checkbox" id="postJobUrgentInput" />
+              <span class="checkbox-box"><i class="fa-solid fa-check checkbox-check-icon"></i></span>
+              <span style="font-size: 13.5px; font-weight: 700; color: #ef4444;">Mark as 🔴 URGENT REQUIREMENT</span>
+            </label>
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
+            <i class="fa-solid fa-plus"></i> Publish Requirement to Buldhana
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       ADD SITE MODAL (BUILDER)
+       ======================================================== -->
+  <div id="addSiteModal" class="modal-overlay-backdrop">
+    <div class="modal-card modal-content-slide" style="max-width: 620px;">
+      <button class="modal-close-btn" onclick="CivilConnectApp.closeAddSiteModal()">
+        <i class="fa-solid fa-xmark"></i>
+      </button>
+
+      <div style="padding: 30px;">
+        <h2 style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 6px;">
+          Register New Construction Site
+        </h2>
+        <p style="font-size: 13px; color: var(--text-muted); margin-bottom: 20px;">
+          Add a project site in Buldhana District to recruit and manage workforce.
+        </p>
+
+        <form id="addSiteForm" onsubmit="CivilConnectApp.handleAddSiteSubmit(event)">
+          <div class="form-group">
+            <label>Project Name</label>
+            <input type="text" id="siteNameInput" class="form-control custom-input" placeholder="e.g. Khamgaon Commercial Plaza" required />
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label>Taluka</label>
+              <select id="siteTalukaSelect" class="form-control custom-input" required>
+                <option value="Khamgaon">Khamgaon</option>
+                <option value="Mehkar">Mehkar</option>
+                <option value="Buldhana" selected>Buldhana</option>
+                <option value="Shegaon">Shegaon</option>
+                <option value="Chikhli">Chikhli</option>
+                <option value="Malkapur">Malkapur</option>
+                <option value="Lonar">Lonar</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>Project Type</label>
+              <select id="siteTypeSelect" class="form-control custom-input">
+                <option value="Residential Building Project">Residential Building</option>
+                <option value="Commercial Hub & Offices">Commercial Hub</option>
+                <option value="Public Infrastructure / Hospital">Public Infrastructure</option>
+                <option value="Highway & Road Civil Works">Highway & Road</option>
+              </select>
+            </div>
+          </div>
+
+          <div style="display: grid; grid-template-columns: 1fr 1fr; gap: 14px;">
+            <div class="form-group">
+              <label>Total Workers Needed</label>
+              <input type="number" id="siteWorkersInput" class="form-control custom-input" placeholder="e.g. 25" required />
+            </div>
+
+            <div class="form-group">
+              <label>Current Construction Stage</label>
+              <input type="text" id="siteStageInput" class="form-control custom-input" placeholder="e.g. Foundation / 2nd Floor RCC" required />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>Exact Location / Address</label>
+            <input type="text" id="siteLocationInput" class="form-control custom-input" placeholder="e.g. Civil Lines, Buldhana Sadar" required />
+          </div>
+
+          <button type="submit" class="btn-primary" style="width: 100%; margin-top: 10px;">
+            <i class="fa-solid fa-building-circle-check"></i> Add Construction Site
+          </button>
+        </form>
+      </div>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       SECTION 45: SUCCESS ANIMATION MODAL
+       ======================================================== -->
+  <div id="successModal" class="modal-overlay-backdrop">
+    <div class="modal-card modal-content-slide success-pop-card" style="max-width: 440px; text-align: center; padding: 40px 30px;">
+      
+      <!-- SVG Animated Checkmark Drawing (stroke-dashoffset) -->
+      <div style="width: 80px; height: 80px; margin: 0 auto 20px auto;">
+        <svg viewBox="0 0 52 52" style="width: 100%; height: 100%;">
+          <circle class="success-checkmark-circle" cx="26" cy="26" r="24" />
+          <path class="success-checkmark-check" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8" />
+        </svg>
+      </div>
+
+      <h3 id="successModalTitle" style="font-size: 22px; font-weight: 800; color: var(--text-primary); margin-bottom: 8px;">
+        Action Successful!
+      </h3>
+      <p id="successModalMessage" style="font-size: 14px; color: var(--text-muted); margin-bottom: 24px;">
+        Your submission has been saved to the Buldhana database.
+      </p>
+
+      <button class="btn-primary" style="width: 100%;" onclick="CivilConnectApp.closeSuccessModal()">
+        Continue
+      </button>
+    </div>
+  </div>
+
+
+  <!-- ========================================================
+       SECTION 42: TOAST NOTIFICATIONS CONTAINER
+       ======================================================== -->
+  <div id="toastContainer" class="toast-container"></div>
+
+
+  <!-- Scripts -->
+  <script src="db.js"></script>
+  <script src="charts.js"></script>
+  <script src="app.js"></script>
+
+</body>
+</html>
